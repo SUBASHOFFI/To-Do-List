@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const db_server="mongodb+srv://subash-d:passwordPASSWORD@cluster0.wmhii.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const app = express();
 const PORT = 3000;
 
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/todoDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`${db_server}`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch((error) => console.error('MongoDB connection error:', error));
 
